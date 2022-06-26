@@ -10,6 +10,7 @@ import Foundation
 typealias Completion = (SignupResponseModel? , SignupError?) -> Void
 
 class SignupWebService{
+    
     private var urlSession: URLSession
     private var url: String
     
@@ -21,6 +22,7 @@ class SignupWebService{
     func signup(with model: SignupFromRequestModel , completion: @escaping Completion){
         guard let url = URL(string: url) else{
             //create a unit test to test that specific error meesage is returned URL is nil
+            completion(nil , SignupError.responseModelParsingError)
             return
         }
         

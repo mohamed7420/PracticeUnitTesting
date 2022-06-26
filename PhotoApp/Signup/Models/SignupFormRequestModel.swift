@@ -8,7 +8,7 @@
 import Foundation
 
 enum SignupError: Error{
-    
+    case responseModelParsingError
 }
 
 struct SignupFromRequestModel: Codable{
