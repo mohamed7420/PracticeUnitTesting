@@ -31,6 +31,7 @@ class SignupWebServiceTest: XCTestCase {
         urlConfigration = nil
         urlSession = nil
         MockURLProtocol.stubResponseData = nil
+        MockURLProtocol.error = nil
         
     }
     
@@ -76,7 +77,9 @@ class SignupWebServiceTest: XCTestCase {
         let expectation = self.expectation(description: "empty url request")
         MockURLProtocol.error = SignupError.responseModelParsingError
         sut.signup(with: signupFormRequestModel) { response, error in
+            XCTAssertNil(response)
             XCTAssertEqual(error, SignupError.responseModelParsingError)
+            
             expectation.fulfill()
         }
         self.wait(for: [expectation], timeout: 2)
