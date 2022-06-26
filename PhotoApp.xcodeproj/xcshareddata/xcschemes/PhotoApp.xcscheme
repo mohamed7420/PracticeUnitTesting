@@ -40,16 +40,6 @@
                ReferencedContainer = "container:PhotoApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8B384D2F28641090000461BB"
-               BuildableName = "PhotoAppUITests.xctest"
-               BlueprintName = "PhotoAppUITests"
-               ReferencedContainer = "container:PhotoApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

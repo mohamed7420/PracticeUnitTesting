@@ -19,6 +19,7 @@
 		8BF1DDCE2867961C00C56B02 /* SignupWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DDCD2867961C00C56B02 /* SignupWebService.swift */; };
 		8BF1DDD02867984B00C56B02 /* SignupFormRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DDCF2867984B00C56B02 /* SignupFormRequestModel.swift */; };
 		8BF1DDD62867A2C400C56B02 /* SignupResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DDD52867A2C400C56B02 /* SignupResponseModel.swift */; };
+		8BF1DDDA2867CC7B00C56B02 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF1DDD92867CC7B00C56B02 /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8BF1DDCD2867961C00C56B02 /* SignupWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupWebService.swift; sourceTree = "<group>"; };
 		8BF1DDCF2867984B00C56B02 /* SignupFormRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormRequestModel.swift; sourceTree = "<group>"; };
 		8BF1DDD52867A2C400C56B02 /* SignupResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponseModel.swift; sourceTree = "<group>"; };
+		8BF1DDD92867CC7B00C56B02 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,7 @@
 		8B384D2928641090000461BB /* PhotoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				8BF1DDD42867A23400C56B02 /* Network */,
-				8BF1DDD32867A22F00C56B02 /* Model */,
+				8BF1DDD72867CC6000C56B02 /* Signup */,
 			);
 			path = PhotoAppTests;
 			sourceTree = "<group>";
@@ -166,6 +167,24 @@
 				8BF1DDCB2867958400C56B02 /* SignupWebServiceTest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		8BF1DDD72867CC6000C56B02 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				8BF1DDD82867CC6900C56B02 /* Mocks */,
+				8BF1DDD32867A22F00C56B02 /* Model */,
+				8BF1DDD42867A23400C56B02 /* Network */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		8BF1DDD82867CC6900C56B02 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8BF1DDD92867CC7B00C56B02 /* MockURLProtocol.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF1DDDA2867CC7B00C56B02 /* MockURLProtocol.swift in Sources */,
 				8BF1DDCC2867958400C56B02 /* SignupWebServiceTest.swift in Sources */,
 				8B6939B22864CC0500044A3A /* SignupFormModelValidatorTests.swift in Sources */,
 			);

@@ -38,6 +38,21 @@ class SignupFormModelValidatorTests: XCTestCase {
         XCTAssertFalse(isFirstNameValid , "first name should less than 3 character should return false")
     }
     
+    func testSignFormModelValidator_WhenLastNameProvided_ShouldReturnTrue(){
+        //Act
+        let isFirstNameValid = sut.validateLastName(lastName: "osama")
+    
+        XCTAssertTrue(isFirstNameValid , "first name should less than 3 character should return false")
+    }
+    
+    func testSignFormModelValidator_WhenInvalidLastNameProvided_ShouldReturnFalse(){
+        //Act
+        let isFirstNameValid = sut.validateLastName(lastName: "o")
+    
+        XCTAssertFalse(isFirstNameValid , "first name should less than 3 character should return false")
+    }
+    
+    
     func testSignFormModelValidator_WhenValidEmailProvided_ShouldReturnTrue(){
         
         let isEmailValid = sut.validateEmail(email: "mohamed.osama9812@gmail.com")
