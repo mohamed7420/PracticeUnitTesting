@@ -15,13 +15,7 @@ protocol SignupFormModelValidatorProtocol{
 }
 
 class SignupFormModelValidator: SignupFormModelValidatorProtocol{
-    
-    var firstName: String?
-    var lastName: String?
-    var email: String?
-    var password: String?
-    var re_password: String?
-    
+
     func validateFirstName(firstName: String) -> Bool{
         let returnedValue = firstName.isEmpty ? false : true
         let isFirstNameShort = firstName.count >= 3 ? true : false
