@@ -62,12 +62,25 @@ class SignupWebServiceTest: XCTestCase {
     func testSignupWebService_WhenEmptyURLProvided_ShouldReturnError(){
         let expectation = self.expectation(description: "empty url request")
         sut = SignupWebService(url: "")
+        
         sut.signup(with: SignupFromRequestModel(firstName: "mohamed", lastName: "osama", email: "mohamed.osama9812@gmail.com", password: "mo128899")) { response, error in
             XCTAssertNil(response)
             XCTAssertEqual(error, SignupError.responseModelParsingError)
             expectation.fulfill()
         }
         self.wait(for: [expectation], timeout: 2)
+    }
+    
+    func testSignupWebService_WhenRequestFailed_ShouldReturnError(){
+        
+        let expectation = self.expectation(description: "empty url request")
+        MockURLProtocol.error = SignupError.responseModelParsingError
+        sut.signup(with: signupFormRequestModel) { response, error in
+            XCTAssertEqual(error, SignupError.responseModelParsingError)
+            expectation.fulfill()
+        }
+        self.wait(for: [expectation], timeout: 2)
+        
     }
     
 }
