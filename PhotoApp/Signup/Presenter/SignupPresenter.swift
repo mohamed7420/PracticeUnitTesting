@@ -10,13 +10,17 @@ import Foundation
 class SignupPresenter{
     
     //dependency injection
-    var signupFormModelValidator: SignupFormModelValidatorProtocol
+    private var signupFormModelValidator: SignupFormModelValidatorProtocol
+    private var signupWebServiceProtocol: SignupWebServiceProtocol
     
-    init(signupFormModelValidator: SignupFormModelValidatorProtocol) {
+    init(signupFormModelValidator: SignupFormModelValidatorProtocol , signupWebServiceProtocol: SignupWebServiceProtocol) {
+        
         self.signupFormModelValidator = signupFormModelValidator
+        self.signupWebServiceProtocol = signupWebServiceProtocol
+    
     }
     
-    func processSignup(model: SignupFormModel){
+    func processSignup(model: SignupFormModel , signupWebServiceProtocol: SignupWebServiceProtocol){
         
         if !signupFormModelValidator.validateFirstName(firstName: model.firstName){
             return
@@ -31,5 +35,10 @@ class SignupPresenter{
         if !signupFormModelValidator.validatePasswordMatching(password: model.password, re_password: model.repeatPassword){
             return
         }
+        let fromModel = SignupFromRequestModel(firstName: model.firstName, lastName: model.lastName, email: model.email, password: model.password)
+        signupWebServiceProtocol.signup(with: fromModel) { response, error in
+            
+        }
+        
     }
 }

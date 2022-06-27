@@ -9,7 +9,7 @@ import Foundation
 
 typealias Completion = (SignupResponseModel? , SignupError?) -> Void
 
-class SignupWebService{
+class SignupWebService: SignupWebServiceProtocol{
     
     private var urlSession: URLSession
     private var url: String
