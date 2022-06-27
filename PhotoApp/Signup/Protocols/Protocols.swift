@@ -13,3 +13,8 @@ protocol SignupFormModelValidatorProtocol{
     func validateEmail(email: String) -> Bool
     func validatePasswordMatching(password: String , re_password: String) -> Bool
 }
+
+
+protocol SignupWebServiceProtocol{
+    func signup(with model: SignupFromRequestModel , completion: @escaping Completion)
+}

@@ -25,6 +25,7 @@
 		8BF28D172868C59300B80AD5 /* SignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF28D162868C59300B80AD5 /* SignupPresenter.swift */; };
 		8BF28D192868C73F00B80AD5 /* MockSignupValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF28D182868C73F00B80AD5 /* MockSignupValidator.swift */; };
 		8BF28D1C2868DDF100B80AD5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF28D1B2868DDF100B80AD5 /* Protocols.swift */; };
+		8BF28D1E2868DE4F00B80AD5 /* MockSignupWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF28D1D2868DE4F00B80AD5 /* MockSignupWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8BF28D162868C59300B80AD5 /* SignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPresenter.swift; sourceTree = "<group>"; };
 		8BF28D182868C73F00B80AD5 /* MockSignupValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignupValidator.swift; sourceTree = "<group>"; };
 		8BF28D1B2868DDF100B80AD5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		8BF28D1D2868DE4F00B80AD5 /* MockSignupWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignupWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				8BF1DDD92867CC7B00C56B02 /* MockURLProtocol.swift */,
 				8BF28D182868C73F00B80AD5 /* MockSignupValidator.swift */,
+				8BF28D1D2868DE4F00B80AD5 /* MockSignupWebService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF28D1E2868DE4F00B80AD5 /* MockSignupWebService.swift in Sources */,
 				8BF1DDDA2867CC7B00C56B02 /* MockURLProtocol.swift in Sources */,
 				8BF1DDCC2867958400C56B02 /* SignupWebServiceTest.swift in Sources */,
 				8BF28D122868B8FF00B80AD5 /* SignupPresenterTests.swift in Sources */,
