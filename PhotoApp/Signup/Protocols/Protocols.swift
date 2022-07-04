@@ -18,3 +18,13 @@ protocol SignupFormModelValidatorProtocol{
 protocol SignupWebServiceProtocol{
     func signup(with model: SignupFromRequestModel , completion: @escaping Completion)
 }
+
+protocol SignupViewDelegateProtocol: AnyObject{
+    func successfullSignup()
+    func errorHandller(error: SignupError?)
+}
+
+protocol SignupPresenterProtocol: AnyObject{
+    init(signupFormModelValidator: SignupFormModelValidatorProtocol , signupWebServiceProtocol: SignupWebServiceProtocol , signupViewDelegateProtocol: SignupViewDelegateProtocol)
+    func processSignup(model: SignupFormModel , signupWebServiceProtocol: SignupWebServiceProtocol)
+}

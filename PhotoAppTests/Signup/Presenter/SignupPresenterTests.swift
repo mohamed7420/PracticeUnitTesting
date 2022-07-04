@@ -14,12 +14,14 @@ class SignupPresenterTests: XCTestCase {
     var mockValidator: MockSignupValidator!
     var mockWebService: MockWebService!
     var sut: SignupPresenter!
+    var mockSignupViewDelegate: MockSignupViewDelegate!
     
     override func setUp(){
         model = SignupFormModel(firstName: "Mohamed", lastName: "osama", email: "mohamed.osama9812@gmail.com", password: "mo128899", repeatPassword: "mo128899")
         mockValidator = MockSignupValidator()
         mockWebService = MockWebService()
-        sut = SignupPresenter(signupFormModelValidator: mockValidator, signupWebServiceProtocol: mockWebService)
+        mockSignupViewDelegate = MockSignupViewDelegate()
+        sut = SignupPresenter(signupFormModelValidator: mockValidator, signupWebServiceProtocol: mockWebService, signupViewDelegateProtocol: mockSignupViewDelegate)
     }
     
     override func tearDown(){
@@ -27,6 +29,7 @@ class SignupPresenterTests: XCTestCase {
         mockValidator = nil
         mockWebService = nil
         sut = nil
+        mockSignupViewDelegate = nil
     }
 
     func testSignupPresenter_WhenProvidedData_WillValidateEachProperty(){
@@ -44,6 +47,26 @@ class SignupPresenterTests: XCTestCase {
         sut.processSignup(model: model, signupWebServiceProtocol: mockWebService)
         
         XCTAssertTrue(mockWebService.isSignupMethodCalled)
+    }
+    
+    func testSignupPresenter_WhenSignupOperationSuccessfully_CallsSuccessOnViewDelegate(){
+        let expectation = self.expectation(description: "Expected the success signup() method to be called")
+        mockSignupViewDelegate = MockSignupViewDelegate()
+        mockSignupViewDelegate.expectation = expectation
+        sut.processSignup(model: model, signupWebServiceProtocol: mockWebService)
+        expectation.fulfill()
+        self.wait(for: [expectation], timeout: 5)
+        XCTAssertEqual(mockSignupViewDelegate.signupSuccessfullyCounter, 0)
+    }
+    
+    func testSignupPresenter_WhenSignupOperationFailed_CallHanldeErrorOnViewDelegate(){
+        let expectation = self.expectation(description: "Expected the failed signup() method to be called")
+        mockSignupViewDelegate = MockSignupViewDelegate()
+        mockSignupViewDelegate.expectation = expectation
+        sut.processSignup(model: model, signupWebServiceProtocol: mockWebService)
+        expectation.fulfill()
+        self.wait(for: [expectation], timeout: 5)
+        XCTAssertEqual(mockSignupViewDelegate.failedCounter, 0)
     }
 
 }

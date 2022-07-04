@@ -14,7 +14,8 @@ class MockWebService: SignupWebServiceProtocol{
     
     func signup(with model: SignupFromRequestModel, completion: @escaping Completion) {
         isSignupMethodCalled = true
+        let response = SignupResponseModel(status: "ok")
+        completion(response , nil)
     }
-    
     
 }
