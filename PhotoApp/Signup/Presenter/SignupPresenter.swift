@@ -7,16 +7,18 @@
 
 import Foundation
 
-class SignupPresenter{
+class SignupPresenter: SignupPresenterProtocol{
     
     //dependency injection
     private var signupFormModelValidator: SignupFormModelValidatorProtocol
     private var signupWebServiceProtocol: SignupWebServiceProtocol
+    private weak var signupViewDelegateProtocol: SignupViewDelegateProtocol?
     
-    init(signupFormModelValidator: SignupFormModelValidatorProtocol , signupWebServiceProtocol: SignupWebServiceProtocol) {
+    required init(signupFormModelValidator: SignupFormModelValidatorProtocol , signupWebServiceProtocol: SignupWebServiceProtocol , signupViewDelegateProtocol: SignupViewDelegateProtocol) {
         
         self.signupFormModelValidator = signupFormModelValidator
         self.signupWebServiceProtocol = signupWebServiceProtocol
+        self.signupViewDelegateProtocol = signupViewDelegateProtocol
     
     }
     
@@ -37,7 +39,11 @@ class SignupPresenter{
         }
         let fromModel = SignupFromRequestModel(firstName: model.firstName, lastName: model.lastName, email: model.email, password: model.password)
         signupWebServiceProtocol.signup(with: fromModel) { response, error in
-            
+            if let error = error{
+                self.signupViewDelegateProtocol?.errorHandller(error: error)
+            }else{
+                self.signupViewDelegateProtocol?.successfullSignup()
+            }
         }
         
     }
